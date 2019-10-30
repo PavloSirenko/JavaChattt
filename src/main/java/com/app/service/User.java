@@ -91,8 +91,7 @@ public class User {
         this.address = address;
     }
 
-    @Override
-    public String toString() {
+    public java.lang.String toString() {
         return "User{" +
                 "nickName='" + nickName + '\'' +
                 ", password='" + password + '\'' +
