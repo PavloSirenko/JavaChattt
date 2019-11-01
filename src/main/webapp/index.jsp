@@ -23,15 +23,6 @@
         <h2>Welcome to JavaChattt!</h2><br><br>
     </div>
     <div align="center">
-        <table>
-            <tr><th>Name</th><th>Email</th><th></th></tr>
-            <c:forEach var="user" items="${users}">
-                <tr><td>${user.nickName}</td>
-                    <td>${user.email}</td></tr>
-            </c:forEach>
-        </table>
-    </div>
-    <div align="center">
         <form action="/index" method="post">
             <h5>Nick name:</h5>
             <input type="text" name="nickName" placeholder="...enter your nick..."><br>

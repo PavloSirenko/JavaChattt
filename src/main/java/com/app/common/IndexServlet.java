@@ -21,8 +21,6 @@ public class IndexServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ArrayList<User> users = UsersDB.select();
-        request.setAttribute("users", users);
 
         getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
     }

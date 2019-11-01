@@ -17,7 +17,7 @@ public class RegistrationServlet extends HttpServlet {
             String nickName = request.getParameter("nickName");
             String password = request.getParameter("password");
             String email = request.getParameter("email");
-            User user = new User(nickName, password, email);
+            User user = new User(new BuilderUser(nickName, password, email));
             UsersDB.insert(user);
             response.sendRedirect(request.getContextPath() + "/userpage");
         }
