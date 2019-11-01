@@ -32,12 +32,12 @@ public class UsersDB {
                     String sex = resultSet.getString(7);
                     int age = resultSet.getInt(8);
                     String address = resultSet.getString(9);
-                    User user = new User(new BuilderUser(nickName, password, email)
+                    User user = new BuilderUser(nickName, password, email)
                             .withFirstName(firstName)
                             .withLastName(lastName)
                             .withSex(sex)
                             .withAge(age)
-                            .withAddress(address));
+                            .withAddress(address).build();
                     users.add(user);
                 }
             }
@@ -70,12 +70,12 @@ public class UsersDB {
                         String sex = resultSet.getString(7);
                         int age = resultSet.getInt(8);
                         String address = resultSet.getString(9);
-                        user = new User(new BuilderUser(nickName, password, email)
+                        user = new BuilderUser(nickName, password, email)
                                 .withFirstName(firstName)
                                 .withLastName(lastName)
                                 .withSex(sex)
                                 .withAge(age)
-                                .withAddress(address));
+                                .withAddress(address).build();
                     }
                 }
             }
