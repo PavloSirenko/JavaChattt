@@ -23,16 +23,25 @@
         <h2>Welcome to JavaChattt!</h2><br><br>
     </div>
     <div align="center">
-        <form method="post">
+        <table>
+            <tr><th>Name</th><th>Email</th><th></th></tr>
+            <c:forEach var="user" items="${users}">
+                <tr><td>${user.nickName}</td>
+                    <td>${user.email}</td></tr>
+            </c:forEach>
+        </table>
+    </div>
+    <div align="center">
+        <form action="/index" method="post">
             <h5>Nick name:</h5>
-            <input type="text" name="nickName"><br>
+            <input type="text" name="nickName" placeholder="...enter your nick..."><br>
             <h5>Password:</h5>
-            <input type="password" name="password"><br>
+            <input type="password" name="password" placeholder="...enter password..."><br>
             <input type="submit" value="Login" />
         </form>
     </div>
     <div align="center">
-        <p><a href='<c:url value="client/registrationPage.jsp" />'>Registration form</a></p>
+        <p><a href='<c:url value="/registration" />'>Registration form</a></p>
     </div>
 </div>
 </body>

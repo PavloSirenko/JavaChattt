@@ -19,7 +19,7 @@ public class RegistrationServlet extends HttpServlet {
             String email = request.getParameter("email");
             User user = new User(nickName, password, email);
             UsersDB.insert(user);
-            response.sendRedirect(request.getContextPath() + "/views/user.jsp");
+            response.sendRedirect(request.getContextPath() + "/userpage");
         }
         catch(Exception ex) {
 

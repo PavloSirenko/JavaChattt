@@ -1,7 +1,7 @@
 package com.app.common;
 
 import com.app.service.User;
-import com.app.service.UsersDB;
+import com.app.dao.UsersDB;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,10 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet(name = "IndexServlet", urlPatterns = {"/"})
+@WebServlet("/index")
 public class IndexServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        /* реалізувати перевірку аутентифікації користувача */
+        // if (user != null) {
+            response.sendRedirect(request.getContextPath() + "/userpage");
+        //}
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
