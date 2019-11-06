@@ -1,6 +1,7 @@
 package com.app.common;
 
-import com.app.service.*;
+import com.app.service.BuilderUser;
+import com.app.service.User;
 import com.app.dao.UsersDB;
 
 import javax.servlet.ServletException;

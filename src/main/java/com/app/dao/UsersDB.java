@@ -3,14 +3,18 @@ package com.app.dao;
 import com.app.service.BuilderUser;
 import com.app.service.User;
 
-import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class UsersDB {
-    private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    private static  final String DB_URL="jdbc:mysql://localhost/javachatdb";
-    private static String DB_USER = "root";
-    private static String DB_PASSWORD = "1122";
+        private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+        private static final String DB_URL = "jdbc:mysql://localhost/javachatdb";
+        private static String DB_USER = "root";
+        private static String DB_PASSWORD = "1122";
 
     public static ArrayList<User> select() {
         ArrayList<User> users = new ArrayList<>();
