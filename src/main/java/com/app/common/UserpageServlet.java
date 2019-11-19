@@ -1,5 +1,9 @@
 package com.app.common;
 
+import com.app.dao.UsersDB;
+import com.app.service.BuilderUser;
+import com.app.service.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +18,7 @@ public class UserpageServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        User user = UsersDB.selectOne(3);
         getServletContext().getRequestDispatcher("/views/userpage.jsp").forward(request, response);
     }
 }

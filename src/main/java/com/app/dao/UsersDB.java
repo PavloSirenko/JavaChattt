@@ -52,6 +52,45 @@ public class UsersDB {
         return users;
     }
 
+    public static User selectUserByEmailByPassword(String nickName, String password) {
+        User user = null;
+
+        try{
+            Class.forName(JDBC_DRIVER).getDeclaredConstructor().newInstance();
+            try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)) {
+
+                String sql = "SELECT * FROM user WHERE nickName=? AND password=?";
+                try(PreparedStatement preparedStatement = conn.prepareStatement(sql)){
+                    preparedStatement.setString(2, nickName);
+                    preparedStatement.setString(3, password);
+                    ResultSet resultSet = preparedStatement.executeQuery();
+                    if(resultSet.next()){
+
+                        int id = resultSet.getInt(1);
+                        String nick = resultSet.getString(2);
+                        String pass = resultSet.getString(3);
+                        String email = resultSet.getString(4);
+                        String firstName = resultSet.getString(5);
+                        String lastName = resultSet.getString(6);
+                        String sex = resultSet.getString(7);
+                        int age = resultSet.getInt(8);
+                        String address = resultSet.getString(9);
+                        user = new BuilderUser(nick, pass, email)
+                                .withId(id)
+                                .withFirstName(firstName)
+                                .withLastName(lastName)
+                                .withSex(sex)
+                                .withAge(age)
+                                .withAddress(address).build();
+                    }
+                }
+            }
+        } catch (Exception ex){
+            System.out.println(ex);
+        }
+        return user;
+    }
+
     public static User selectOne(int userId) {
 
         User user = null;
@@ -83,8 +122,7 @@ public class UsersDB {
                     }
                 }
             }
-        }
-        catch(Exception ex){
+        } catch (Exception ex){
             System.out.println(ex);
         }
         return user;
